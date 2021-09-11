@@ -1,8 +1,9 @@
+[submodule "theme/p10k"]
+	path = theme/p10k
+	url = git://github.com/romkatv/powerlevel10k.git
 [submodule "plugins/zsh-autosuggestions"]
 	path = plugins/zsh-autosuggestions
 	url = git://github.com/zsh-users/zsh-autosuggestions.git
-	branch = master
 [submodule "plugins/zsh-completions"]
 	path = plugins/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
-	branch = master
