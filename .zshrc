@@ -17,14 +17,19 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
 
-bindkey "^[[A" up-line-or-search   # Use current words as prefix to search history, Up
-bindkey "^[[B" down-line-or-search # Use current words as prefix to search history, Down
-
 autoload -Uz compinit
 zstyle ':completion:*' menu select
 
 # Autosuggestions
 source ~/.dotfiles/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# History Substring Search
+source ~/.dotfiles/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='fg=red,bold'
+export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND=''
+export HISTORY_SUBSTRING_SEARCH_PREFIXED=true
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # Completions
 fpath=(~/.dotfiles/plugins/zsh-completions/src $fpath)
