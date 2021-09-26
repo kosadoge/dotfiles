@@ -3,10 +3,8 @@
     "workbench.startupEditor": "none",
     "workbench.editor.untitled.hint": "hidden",
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "Iosevka Extended, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Iosevka Extended",
     "editor.fontSize": 16,
-    "editor.fontWeight": "400",
-    "editor.suggestSelection": "first",
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
     // Terminal
