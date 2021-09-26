@@ -16,6 +16,8 @@ setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_IGNORE_DUPS
 setopt HIST_VERIFY
 setopt INC_APPEND_HISTORY
+setopt NO_FLOW_CONTROL        # Disable flow control for unmapping Ctrl+S, Ctrl+Q
+setopt INTERACTIVE_COMMENTS
 
 autoload -Uz compinit
 zstyle ':completion:*' menu select
@@ -34,3 +36,13 @@ bindkey '^[[B' history-substring-search-down
 # Completions
 fpath=(~/.dotfiles/plugins/zsh-completions/src $fpath)
 rm -f ~/.zcompdump; compinit
+
+# Env
+export BAT_THEME='gruvbox-dark'
+
+# Aliases
+alias k8s='kubectl'; compdef k8s=kubectl
+alias ls='exa'
+alias ll='exa -l'
+alias tree='exa -T'
+alias cat='bat -p --paging=never'
