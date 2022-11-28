@@ -59,7 +59,15 @@ return require("packer").startup({
                     options = {
                         theme = "gruvbox-material",
                         section_separators = "",
-                        component_separators = { left = "|", right = "|" }
+                        component_separators = { left = "|", right = "|" },
+                    },
+                    sections = {
+                        lualine_a = { "mode" },
+                        lualine_b = { "branch", "diff", "diagnostics" },
+                        lualine_c = { "filename" },
+                        lualine_x = { "encoding", "filetype" },
+                        lualine_y = { "progress" },
+                        lualine_z = { "location "}
                     }
                 }
             end
