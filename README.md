@@ -12,5 +12,5 @@ $ git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/n
 
 ```shell
 $ ln -s ~/.dotfiles/neovim/init.lua ~/.config/nvim/init.lua
-$ ln -s ~/.dotfiles/neovim/module ~/.config/nvim/lua
+$ ln -s ~/.dotfiles/neovim/lua ~/.config/nvim/lua
 ```
