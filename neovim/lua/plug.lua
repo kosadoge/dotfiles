@@ -8,23 +8,17 @@ end
 
 return require("packer").startup({
     function(use)
-        use "wbthomason/packer.nvim"
+        use { "wbthomason/packer.nvim" }
 
         -- Theme
         use {
             "sainnhe/gruvbox-material",
-            setup = function()
-                vim.g.gruvbox_material_background = "medium"
-            end,
-            config = function()
-                vim.cmd([[colorscheme gruvbox-material]])
-            end
+            setup = function() vim.g.gruvbox_material_background = "medium" end,
+            config = function() vim.cmd([[colorscheme gruvbox-material]]) end
         }
 
         -- LSP
-        use {
-            "neovim/nvim-lspconfig"
-        }
+        use { "neovim/nvim-lspconfig" }
 
         -- Tree Sitter
         use {
@@ -83,6 +77,11 @@ return require("packer").startup({
 
     end,
     config = {
-        display = { open_fn = require("packer.util").float }
+        display = {
+            done_sym = "✔️",
+            working_sym = "↻",
+            error_sym = "✘",
+            open_fn = require("packer.util").float
+        }
     }
 })
