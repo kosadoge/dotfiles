@@ -13,7 +13,11 @@ return require("packer").startup({
         -- Theme
         use {
             "sainnhe/gruvbox-material",
-            setup = function() vim.g.gruvbox_material_background = "medium" end,
+            setup = function()
+                vim.g.gruvbox_material_foreground = "material"
+                vim.g.gruvbox_material_background = "medium"
+                vim.g.gruvbox_material_better_performance = 1
+            end,
             config = function() vim.cmd([[colorscheme gruvbox-material]]) end
         }
 
@@ -23,10 +27,14 @@ return require("packer").startup({
         -- Tree Sitter
         use {
             "nvim-treesitter/nvim-treesitter",
-            run = function()
-                local update = require('nvim-treesitter.install').update({ with_sync = true })
-                update()
-            end,
+            run = function() require("nvim-treesitter.install").update { with_sync = true } end,
+            config = function()
+                require("nvim-treesitter.configs").setup {
+                    highlight = {
+                        enable = true
+                    }
+                }
+            end
         }
 
         -- Fuzzy Finder
