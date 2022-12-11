@@ -8,6 +8,19 @@
 $ chsh -s $(which zsh)
 ```
 
+並在 $HOME 下新增 .zshenv 來設定 $ZDOTDIR 環境變數：
+
+```shell
+# 指向 .config/zsh 來統一管理這些設定文件，若沒設定會用 $HOME 取代
+ZDOTDIR=~/.config/zsh
+```
+
+之後鏈結一下目錄：
+
+```shell
+$ ln -s ~/.dotfiles/zsh ~/.config/zsh
+```
+
 
 ## Neovim
 會自動安裝 [Packer](https://github.com/wbthomason/packer.nvim) 來管理 Plugins ，只需要鏈結 `neovim` 目錄的檔案到 `~/.config/nvim` 下：

@@ -3,3 +3,7 @@
 
 # ASDF VM
 .tool-versions
+
+# ZSH metadata
+.zcompdump
+.zsh_history
