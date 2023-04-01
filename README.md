@@ -22,3 +22,13 @@ Windows 使用 PowerShell ，將 Repository Clone 到 $HOME 內，將相關設�
 ```
 
 之後開啟 Neovim 後執行 `:PackerSync` 即可。
+
+
+## k9s
+如果出現 UI Render 的問題，可以試著設定環境變數看看：
+
+```powershell
+> $Env:RUNEWIDTH_EASTASIAN = 0
+```
+
+這似乎會取消掉 tcell 在 CJK 上的渲染問題。
