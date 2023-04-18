@@ -2,35 +2,50 @@
     "window.nativeTabs": true,
     "workbench.startupEditor": "none",
     "workbench.editor.untitled.hint": "hidden",
+
+    // Editor
     "editor.minimap.enabled": false,
+    "editor.rulers": [120],
+    "editor.bracketPairColorization.enabled": false,
     "editor.fontFamily": "Iosevka Extended",
     "editor.fontSize": 16,
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
     // Terminal
-    "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.fontSize": 16,
-    "terminal.integrated.fontFamily": "Iosevka Term",
+    "terminal.integrated.fontFamily": "Iosevka Nerd Font",
+
+    // Theme
+    "gruvboxMaterial.darkContrast": "hard",
+    "gruvboxMaterial.darkWorkbench": "high-contrast",
+    "workbench.colorTheme": "Gruvbox Material Dark",
     "workbench.colorCustomizations": {
-        "terminal.background": "#1D1F21",
-        "terminal.foreground": "#C5C8C6",
-        "terminalCursor.background": "#1D1F21",
-        "terminalCursor.foreground": "#C5C8C6",
-        "terminal.ansiBlack": "#1D1F21",
-        "terminal.ansiBlue": "#81A2BE",
-        "terminal.ansiBrightBlack": "#969896",
-        "terminal.ansiBrightBlue": "#81A2BE",
-        "terminal.ansiBrightCyan": "#8ABEB7",
-        "terminal.ansiBrightGreen": "#B5BD68",
-        "terminal.ansiBrightMagenta": "#B294BB",
-        "terminal.ansiBrightRed": "#CC6666",
-        "terminal.ansiBrightWhite": "#FFFFFF",
-        "terminal.ansiBrightYellow": "#F0C674",
-        "terminal.ansiCyan": "#8ABEB7",
-        "terminal.ansiGreen": "#B5BD68",
-        "terminal.ansiMagenta": "#B294BB",
-        "terminal.ansiRed": "#CC6666",
-        "terminal.ansiWhite": "#C5C8C6",
-        "terminal.ansiYellow": "#F0C674"
+        "editor.selectionBackground": "#504945",
+        "editor.selectionHighlightBackground": "#504945aa",
+        "editor.inactiveSelectionBackground": "#504945aa",
     },
+
+    // Go
+    "go.toolsManagement.autoUpdate": true,
+    "go.testFlags": ["-v"],
+
+    // Protobuf
+    "clang-format.language.proto.style": "{ IndentWidth: 4, BasedOnStyle: google, AlignConsecutiveAssignments: true, ColumnLimit: 0 }",
+    "[proto3]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+
+    // Javascript
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+
+    // YAML
+    "yaml.schemaStore.enable": false,
+    
+    // Shit
+    "redhat.telemetry.enabled": false,
+    "errorLens.enabledDiagnosticLevels": [
+        "warning",
+        "info"
+    ],
 }
