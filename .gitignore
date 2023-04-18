@@ -5,5 +5,7 @@
 .tool-versions
 
 # ZSH metadata
+.zcompcache/
 .zcompdump
 .zsh_history
+.zprofile
