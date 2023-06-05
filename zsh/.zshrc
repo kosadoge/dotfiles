@@ -16,6 +16,8 @@ zstyle ':completion:*' menu select
 export HISFILE=$ZDOTDIR/.zsh_history # Where history file store
 export HISTSIZE=10000                # How many commands zsh will load to memory
 export SAVEHIST=10000                # How many commands history zsh will save on file
+bindkey "\e[1;3D" backward-word      # Make Alt + Left move backward word
+bindkey "\e[1;3C" forward-word       # Make Alt + Right move forward word
 setopt HIST_IGNORE_ALL_DUPS          # History won't save duplicates
 setopt HIST_FIND_NO_DUPS             # History won't show duplicates on search
 setopt HIST_VERIFY                   # Use history expansion (!!, !-2, ^foo...) will not excute directly
