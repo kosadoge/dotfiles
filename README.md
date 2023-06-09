@@ -12,6 +12,12 @@ Windows 使用 PowerShell ，將 Repository Clone 到 $HOME 內，將相關設�
 > New-Item -Path $Env:AppData\lsd -Value $Home\.dotfiles\lsd -ItemType SymbolicLink -Force
 ```
 
+記得開啟 Windows 的 UTF-8 支援：
+
+```
+設定 > 時間與語言 > 語言與地區 > 系統管理語言設定 > 系統管理 > 變更系統地區設定 > 使用 Unicode UTF-8
+```
+
 
 ## Neovim
 會自動安裝 [Packer](https://github.com/wbthomason/packer.nvim) 來管理 Plugins ，只需要鏈結 `neovim` 目錄的檔案到 `~/.config/nvim` 下：
