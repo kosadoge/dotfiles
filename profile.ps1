@@ -34,6 +34,9 @@ function prompt {
     return $userPrompt
 }
 
+# Create user profile if it doesn't exist
+if ( -not ( Test-Path $Profile ) ) { New-Item -Path $Profile -Type File -Force }
+
 # PowerShell Settings
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
