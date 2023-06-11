@@ -1,95 +1,71 @@
--- Install plugin manager if not exists
-local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if vim.fn.empty(vim.fn.glob(install_path)) then
-    vim.fn.system({"git", "clone", '--depth', '1', "https://github.com/wbthomason/packer.nvim", install_path})
-    vim.cmd([[packadd packer.nvim]])
+local manager_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(manager_path) then
+    vim.fn.system({"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", manager_path})
 end
+vim.opt.rtp:prepend(manager_path)
 
 
-return require("packer").startup({
-    function(use)
-        use { "wbthomason/packer.nvim" }
+require("lazy").setup({
+    -- LSP
+    { "neovim/nvim-lspconfig" },
 
-        -- Theme
-        use {
-            "sainnhe/gruvbox-material",
-            setup = function()
-                vim.g.gruvbox_material_foreground = "material"
-                vim.g.gruvbox_material_background = "medium"
-                vim.g.gruvbox_material_better_performance = 1
-            end,
-            config = function() vim.cmd([[colorscheme gruvbox-material]]) end
-        }
+    -- Theme
+    {
+        "sainnhe/gruvbox-material",
+        lazy = false,
+        init = function()
+            vim.g.gruvbox_material_foreground = "material"
+            vim.g.gruvbox_material_background = "medium"
+            vim.g.gruvbox_material_better_performance = 1
+        end,
+        config = function() vim.cmd([[colorscheme gruvbox-material]]) end,
+    },
 
-        -- LSP
-        use { "neovim/nvim-lspconfig" }
+    -- NerdTree
+    {
+        "nvim-tree/nvim-tree.lua",
+        version = "*",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function() require("nvim-tree").setup() end,
+    },
 
-        -- Tree Sitter
-        use {
-            "nvim-treesitter/nvim-treesitter",
-            run = function() require("nvim-treesitter.install").update { with_sync = true } end,
-            config = function()
-                require("nvim-treesitter.configs").setup {
-                    highlight = {
-                        enable = true
-                    }
-                }
-            end
-        }
+    -- Fuzzy Finder
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.1",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local builtin = require("telescope.builtin")
+            vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
+            vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+            vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+            vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
+        end,
+    },
 
-        -- Fuzzy Finder
-        use {
-            "nvim-telescope/telescope.nvim",
-            tag = "0.1.0",
-            requires = { {"nvim-lua/plenary.nvim"} },
-            config = function()
-                local builtin = require("telescope.builtin")
-                vim.keymap.set("n", "<Leader>ff", builtin.find_files, {})
-                vim.keymap.set("n", "<Leader>fg", builtin.live_grep, {})
-            end
-        }
+    -- Bufferline
+    {
+        "akinsho/bufferline.nvim",
+        version = "*",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 
-        -- File Browser
-        use {
-            "nvim-tree/nvim-tree.lua",
-            tag = "nightly",
-            requires = { "nvim-tree/nvim-web-devicons" },
-            config = function()
-                require("nvim-tree").setup {}
-                vim.keymap.set("n", "<Leader>b", ":NvimTreeFindFileToggle!<CR>", {})
-            end
-        }
+    -- Status Bar
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
+        config = function()
+            require("lualine").setup({
+                options = {
+                    theme = "gruvbox-material",
+                },
+            })
+        end,
+    },
 
-        -- Status Bar
-        use {
-            "nvim-lualine/lualine.nvim",
-            requires = { "nvim-lualine/lualine.nvim", opt = true },
-            config = function()
-                require("lualine").setup {
-                    options = {
-                        theme = "gruvbox-material",
-                        section_separators = "",
-                        component_separators = { left = "|", right = "|" },
-                    },
-                    sections = {
-                        lualine_a = { "mode" },
-                        lualine_b = { "branch", "diff", "diagnostics" },
-                        lualine_c = { "filename" },
-                        lualine_x = { "encoding", "filetype" },
-                        lualine_y = { "progress" },
-                        lualine_z = { "location "}
-                    }
-                }
-            end
-        }
-
-    end,
-    config = {
-        display = {
-            done_sym = "✔️",
-            working_sym = "↻",
-            error_sym = "✘",
-            open_fn = require("packer.util").float
-        }
-    }
+    -- Tree Sitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = function() require("nvim-treesitter.install").update({ with_sync = true }) end,
+    },
 })

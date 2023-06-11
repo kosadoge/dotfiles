@@ -6,6 +6,7 @@ opt.number = true                -- bool: Show line numbers
 opt.relativenumber = true        -- bool: Show relative line numbers
 opt.scrolloff = 4                -- int:  Min num lines of context
 opt.signcolumn = "yes"           -- str:  Show the sign column
+opt.cmdheight = 0                -- str:  Bottom command line height
 
 -- Filetypes
 opt.encoding = "utf8"            -- str:  String encoding to use
@@ -33,3 +34,10 @@ opt.splitbelow = true            -- bool: Place new window below the current one
 
 -- Neovide
 opt.guifont = "Iosevka Nerd Font:h16"
+
+-- Shell
+if vim.fn.has("win32") then
+    opt.shell = "powershell"
+else
+    opt.shell = "pwsh"
+end
