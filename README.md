@@ -8,7 +8,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 需要裝的東西有：
 
-- exa
+- eza
 - bat
 - ripgrep
 - fd

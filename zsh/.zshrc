@@ -68,7 +68,7 @@ export BAT_THEME='gruvbox-dark'
 
 # Aliases
 alias k8s='kubectl'; compdef k8s=kubectl
-alias ls='exa'
-alias ll='exa -l'
-alias tree='exa -T'
+alias ls='eza'
+alias ll='eza -l'
+alias tree='eza -T'
 alias cat='bat -p --paging=never'
