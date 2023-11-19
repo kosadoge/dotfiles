@@ -54,8 +54,8 @@ Set-Alias -Name k8s -Value kubectl
 function Display-Content () { bat -p --paging=never $args }
 Set-Alias -Name cat -Value Display-Content
 
-function List-Tree () { lsd --tree $args }
-function List-Long () { lsd -l $args }
+function List-Tree () { eza -t $args }
+function List-Long () { eza -l $args }
 Set-Alias -Name tree -Value List-Tree
 Set-Alias -Name ll -Value List-Long
-Set-Alias -Name ls -Value lsd
+Set-Alias -Name ls -Value eza
