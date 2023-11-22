@@ -7,9 +7,6 @@ Windows 使用 PowerShell ，將 Repository Clone 到 $HOME 內，將相關設�
 
 # 設定 Windows Terminal
 > New-Item -Path $Env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json -Value $Home\.dotfiles\settings.json -ItemType SymbolicLink -Force
-
-# 設定 lsd 設定
-> New-Item -Path $Env:AppData\lsd -Value $Home\.dotfiles\lsd -ItemType SymbolicLink -Force
 ```
 
 記得開啟 Windows 的 UTF-8 支援：
