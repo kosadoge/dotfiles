@@ -1,26 +1,7 @@
-def git_branch [] {
-    try {
-        let branch = (git rev-parse --abbrev-ref HEAD)
-        if ($branch == "HEAD") {
-            $"(ansi red)\((git rev-parse --short HEAD)\)"
-        } else {
-            $"(ansi blue)\(($branch)\)"
-        }
-    } catch {
-        $"(ansi yellow)\(no branches yet\)"
-    }
-}
-
 def create_left_prompt [] {
     let path_color = (if (is-admin) { ansi red_bold } else { ansi green_bold })
     let separator_color = (if (is-admin) { ansi light_red_bold } else { ansi light_green_bold })
-    let path_segment = $"($path_color)($env.PWD)" | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
-    
-    if (pwd | path join .git | path exists) {
-        $"($path_segment) (git_branch)"
-    } else {
-        $path_segment
-    }
+    $"($path_color)($env.PWD)" | str replace --all (char path_sep) $"($separator_color)(char path_sep)($path_color)"
 }
 
 
