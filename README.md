@@ -1,5 +1,5 @@
 # KosaDoge dotfiles
-Windows 使用 PowerShell ，將 Repository Clone 到 $HOME 內，將相關設定鏈結：
+Windows 使用 PowerShell ，將 Repository Clone 到 `$HOME` 內，並在 PowerShell 將相關設定鏈結：
 
 ```powershell
 # 設定 PowerShell 的 Prefix
@@ -7,6 +7,11 @@ Windows 使用 PowerShell ，將 Repository Clone 到 $HOME 內，將相關設�
 
 # 設定 Windows Terminal
 > New-Item -Path $Env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json -Value $Home\.dotfiles\settings.json -ItemType SymbolicLink -Force
+
+# 設定 Nushell ，但如果沒打算使用可以忽略
+> winget install nushell
+> New-Item -Path $Env:AppData\nushell\env.nu -Value $Home\.dotfiles\nushell\env.nu -ItemType SymbolicLink -Force
+> New-Item -Path $Env:AppData\nushell\config.nu -Value $Home\.dotfiles\nushell\config.nu -ItemType SymbolicLink -Force
 ```
 
 記得開啟 Windows 的 UTF-8 支援：
