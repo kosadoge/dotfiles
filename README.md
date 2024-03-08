@@ -2,7 +2,7 @@
 基本安裝依賴 Homebrew ，目前在 M1 上不會自動加入到 `PATH` 需要額外操作：
 
 ```shell
-# 建立一個 .zprofile 檔案，並在裡面加入
+# $HOME 建立一個 .zshenv 檔案，並在裡面加入
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
