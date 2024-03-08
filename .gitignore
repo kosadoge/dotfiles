@@ -6,6 +6,7 @@
 
 # ZSH metadata
 .zcompcache/
+.zsh_sessions/
 .zcompdump
 .zsh_history
 .zprofile
